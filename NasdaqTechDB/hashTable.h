@@ -90,17 +90,23 @@ bool hashTable<T>::insertEntry(int hashFunc(T newEntry,int numberOfBuckets),cons
     int address = hashFunc(newEntry,numberOfBuckets);
     if (table[address*BucketSize] != NULL) {collisions++;}
     
-    for (int i = 0; i < BucketSize; i++) {
-        if (table[address*BucketSize +i] == NULL) {
-            table[address*BucketSize +i] = new hashEntry<T>(hashFunc,newEntry,numberOfBuckets);
-            if(i == 0){bucketsTaken++;}
-            count++;
-            return true;
+    for(int i = 0; i < numberOfBuckets; i++){
+        int addressLooper = (address + i)%numberOfBuckets;
+        
+        for (int i = 0; i < BucketSize; i++) {
+            if (table[addressLooper*BucketSize +i] == NULL) {
+                table[addressLooper*BucketSize +i] = new hashEntry<T>(hashFunc,newEntry,numberOfBuckets);
+                if(i == 0){bucketsTaken++;}
+                count++;
+                return true;
+            }
         }
+        
     }
     
+    
     failedInserts++;
-    printf("Failed to insert, bucket %d is full!\n",address);
+    cout << "Failed to insert\n" <<endl;
     return false;
 }
 
@@ -113,14 +119,21 @@ bool hashTable<T>::insertEntry(int hashFunc(T newEntry,int numberOfBuckets),cons
 template <class T>
 bool hashTable<T>::deleteEntry(int hashFunc(T entry,int numberOfBuckets), T entry) {
     int address = hashFunc(entry,numberOfBuckets);
-    for (int i = 0; i < BucketSize; i++) {
-        if (table[address*BucketSize +i] != NULL) {
-            if (*table[address*BucketSize + i] == entry) {
-                delete table[address*BucketSize + 1];
-                return true;
+    
+    for(int i = 0; i < numberOfBuckets; i++){
+        int addressLooper = (address + i)%numberOfBuckets;
+        
+        for (int i = 0; i < BucketSize; i++) {
+            if (table[addressLooper*BucketSize +i] != NULL) {
+                if (*table[addressLooper*BucketSize + i] == entry) {
+                    delete table[addressLooper*BucketSize + 1];
+                    return true;
+                }
             }
         }
+        
     }
+    
     printf("Failed to delete entery, entry not found!\n",address);
     return false;
     
@@ -136,14 +149,21 @@ bool hashTable<T>::deleteEntry(int hashFunc(T entry,int numberOfBuckets), T entr
 template <class T>
 bool hashTable<T>::getEntry(int hashFunc(T entry,int numberOfBuckets), T entry, T & foundItem) {
     int address = hashFunc(entry,numberOfBuckets);
-    for (int i = 0; i < BucketSize; i++) {
-        if (table[address*BucketSize +i] != NULL) {
-            if (table[address*BucketSize + i]->getItem() == entry) {
-                foundItem = table[address*BucketSize + i]->getItem();
-                return true;
+    
+    for(int i = 0; i < numberOfBuckets; i++){
+        int addressLooper = (address + i)%numberOfBuckets;
+        
+        for (int i = 0; i < BucketSize; i++) {
+            if (table[addressLooper*BucketSize +i] != NULL) {
+                if (table[addressLooper*BucketSize + i]->getItem() == entry) {
+                    foundItem = table[addressLooper*BucketSize + i]->getItem();
+                    return true;
+                }
             }
         }
+        
     }
+    
     printf("Entry Not Found!\n");
     return false;
     

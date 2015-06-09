@@ -1,0 +1,26 @@
+FB;Facebook, Inc.;05182012;USA;Mark Zuckerberg;Computer Software
+FLEX;Flextronics International Ltd.;05251994;Singapore;Mike McNamara;Electrical Products
+APPL;Apple Inc.;12191980;USA;Tim Cook;Computer Manufacturing
+WB;Weibo;04172014;China;Charles Chao;Computer Software
+TXN;Texas Instruments Incorporated;10011953;USA;Richard Templeton;Semiconductors
+EA;Electronic Arts Inc.;09201989;USA;Andrew Wilson;Computer Software
+ADSK;Autodesk Inc.;01021990;USA;Carl Bass;Computer Software
+BIDU;Baidu Inc.;08052005;China;Robin Li;Computer Software
+BRCM;Broadcom Corporation;04171998;USA;Scott McGregor;Semiconductors
+CSCO;Cisco Systems Inc.;02231990;USA;John Chambers;Computer Communications Equipment
+GRPN;Groupon Inc.;11072011;USA;Eric Lefkofsky;Advertising
+INTC;Intel Corporation;01131978;USA;Brian Krzanich;Semiconductors
+LOGI;Logitech International S.A.;04041997;USA;Jerry Quindlen;Computer peripheral equipment
+SYNA;Synaptics Incorporated;01292002;USA;Rick Bergman;EDP Services
+TRIP;TripAdvisor Inc.;12212011;USA;Stephen Kaufer;Computer Software
+SNDK;SanDisk Corporation;11171995;USA;Sanjay Mehrotra;Electronic Components
+STX;Seagate Technology;12112002;Ireland;Stephen Luczo;Electronic Components
+SYMC;Symantec Corporation;06231989;USA;Michael Brown;Computer Software
+QCOM;QUALCOMM Incorporated;12201991;USA;Steven Mollenkopf;Radio and television broadcasting and communications equipment
+MSFT;Microsoft Corporation;03131986;USA;Satya Nadella;Computer Software
+INTU;Intuit Inc.;03191993;USA;Brad Smith;Computer Software
+MAMS;MAM Software Group Inc.;02232006;United Kingdom;Michael Jamieson;Computer Software
+HIMX;Himax Technologies Inc.;03312006;Taiwan;Jordan Wu;Semiconductors
+CTXS;Citrix Systems Inc.;12151995;USA;Mark Templeton;Computer Software
+ATVI;Activision Blizzard Inc;11051993;USA;Robert Kotick;Computer Software
+ADBE;Adobe Systems Incorporated;08221986;USA;Shantanu Narayen;Computer Software
