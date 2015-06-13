@@ -16,9 +16,6 @@ void displayIndentedTree(CompanyObject &company, int level){
     cout << setw(13*level) << "L." << level << " "  << company.getTickerSymbol() << endl;
 }
 
-
-
-
 BinarySearchTree<CompanyObject> *buildCompanyTree(string fileName, int keyNumber){
     BinarySearchTree<CompanyObject> *treePtr = new BinarySearchTree<CompanyObject>();
     ifstream inputFile(fileName);
@@ -46,9 +43,7 @@ BinarySearchTree<CompanyObject> *buildCompanyTree(string fileName, int keyNumber
         }else{
             cout << "Failed to insert, company already exist in database!" <<endl;
         }
-        
     }
-    
     
     inputFile.close();
     return treePtr;
@@ -67,7 +62,7 @@ void BST_Menu(int keyNumber, BinarySearchTree<CompanyObject>* tree2Ptr){
     CompanyObject temp;
     while (inMenu) {
         
-        cout << "Please enter an option (H for help): ";
+        cout << "Please enter an option (M for Menu): ";
         cin.getline(line, 127);
         option = line[0];
         
@@ -136,15 +131,8 @@ void BST_Menu(int keyNumber, BinarySearchTree<CompanyObject>* tree2Ptr){
                 cout << "Developer Name" <<endl;
                 break;
                 
-            case 'H':
-                cout << "B – Tree Breadth-First Traversal: Print by level"<<endl;
-                cout << "D – Depth-First Traversals: inorder, preorder, postorder"<<endl;
-                cout << "I – Iterative Depth-First Traversals: inorder, preorder, postorder"<<endl;
-                cout << "T – Print tree as an indented list "<<endl;
-                cout << "S – Search by a unique key"<<endl;
-                cout << "R – Print the items within a given range in the tree"<<endl;
-                cout << "H – Help – to show the menu"<<endl;
-                cout << "Q – Quit\n\n"<<endl;
+            case 'M':
+                displayBSTMenu();
                 break;
                 
             case 'Q':
@@ -156,6 +144,17 @@ void BST_Menu(int keyNumber, BinarySearchTree<CompanyObject>* tree2Ptr){
                 break;
         }
     }
-    
-    
+}
+
+void displayBSTMenu()
+{
+    cout << "B – Tree Breadth-First Traversal: Print by level"<<endl;
+    cout << "D – Depth-First Traversals: inorder, preorder, postorder"<<endl;
+    cout << "I – Iterative Depth-First Traversals: inorder, preorder, postorder"<<endl;
+    cout << "T – Print tree as an indented list "<<endl;
+    cout << "S – Search by a unique key"<<endl;
+    cout << "R – Print the items within a given range in the tree"<<endl;
+    cout << "H – Help – to show the menu"<<endl;
+    cout << "Q – Quit\n\n"<<endl;
+
 }
