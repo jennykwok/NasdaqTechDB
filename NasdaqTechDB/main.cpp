@@ -33,28 +33,46 @@ int main(int argc, const char * argv[]) {
         cin.getline(line, 127);
         
         if (line[0] == 'M') {
-            cout << "Search companies by ticker symbol" << endl;
-            cout << "Search companies by IPO date" << endl;
-            cout << "Search companies by name" << endl << endl;
-            //print 1
-            //print 2
+            cout << "Type TICKER to search companies by ticker symbol" << endl;
+            cout << "Type IPO search companies by IPO date" << endl;
+            cout << "Type NAME search companies by name" << endl;
+            cout << "Type ALL display all companies sorted by ticker symbol" << endl;
+            //cout << "Type NAME search companies by name" << endl << endl;
+            cout << "Type quit to exit main menu\n\n" <<endl;
+ 
             
             
-            cout << "Type BST1 for binary seach tree with ticker symbol as key" <<endl;
-            cout << "Type BST2 for binary seach tree with IPO date as key" <<endl;
-            cout << "Type HASH for hash table" <<endl;
-            cout << "Type quit to exit main menu\n" <<endl;
+            //cout << "Type BST1 for binary seach tree with ticker symbol as key" <<endl;
+            //cout << "Type BST2 for binary seach tree with IPO date as key" <<endl;
+            //cout << "Type HASH for hash table" <<endl;
+            
         }
         
-        if (strcmp(line, "BST1") == 0) {
+        if (strcmp(line, "*BST1*") == 0) {
             BST_Menu(0,tree1Ptr);
         }
-        if(strcmp(line, "BST2") == 0){
+        if(strcmp(line, "*BST2*") == 0){
             BST_Menu(1,tree2Ptr);
         }
-        if(strcmp(line, "HASH") == 0){
+        if(strcmp(line, "*HASH*") == 0){
             hashTable_Menu(hashTable);
         }
+        
+        if (strcmp(line, "TICKER") == 0) {
+            BSTSearchOption(0, tree1Ptr);
+        }
+        if(strcmp(line, "IPO") == 0){
+            BSTSearchOption(1, tree1Ptr);
+        }
+        if(strcmp(line, "NAME") == 0){
+            hashSearchOption(hashTable);
+        }
+        if(strcmp(line, "ALL") == 0){
+            tree1Ptr->inOrder(displayCompany);
+        }
+
+
+        
         if (strcmp(line, "QUIT") == 0) {
             cout << "Exiting Main Menu\n" <<endl;
             inMenu = false;
@@ -67,5 +85,9 @@ int main(int argc, const char * argv[]) {
     delete hashTable;
     
     return 0;
+    
+}
+
+void searchManager(){
     
 }

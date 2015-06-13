@@ -18,7 +18,10 @@
 #include "BinarySearchTree.h"
 
 BinarySearchTree<CompanyObject> *buildCompanyTree(string fileName, int keyNumber);
+void displayCompany(CompanyObject &company);
+void displayIndentedTree(CompanyObject &company, int level);
 void BST_Menu(int keyNumber,BinarySearchTree<CompanyObject>* tree2Ptr);
+void BSTSearchOption(int keyNumber, BinarySearchTree<CompanyObject>* tree2Ptr);
 void displayBSTMenu();
 
 #endif /* defined(__NasdaqTechDB__BST_Menu__) */

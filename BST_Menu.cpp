@@ -103,15 +103,7 @@ void BST_Menu(int keyNumber, BinarySearchTree<CompanyObject>* tree2Ptr){
                 
             case 'S':{
                 
-                cout << "Enter company " << ((keyNumber == 0) ? "ticker symbol: ":"IPO date: ");
-                char companyKey[128];
-                cin.getline(companyKey, 127);
-                if (tree2Ptr->getEntry(CompanyObject(keyNumber,companyKey,"",companyKey,"","",""), temp)) {
-                    displayCompany(temp);
-                    cout << "\n\n" << endl;
-                }else{
-                    cout << "Cound Not Find company\n\n" <<endl;
-                }
+                BSTSearchOption(keyNumber, tree2Ptr);
                 break;
             }
             case 'R':{
@@ -157,4 +149,23 @@ void displayBSTMenu()
     cout << "H – Help – to show the menu"<<endl;
     cout << "Q – Quit\n\n"<<endl;
 
+}
+
+void BSTSearchOption(int keyNumber, BinarySearchTree<CompanyObject>* tree2Ptr){
+    CompanyObject temp;
+    char companyKey[128];
+    
+    while (1) {
+        cout << "Enter company " << ((keyNumber == 0) ? "ticker symbol (QUIT to stop searching): ":"IPO date (QUIT to stop searching): ");
+        cin.getline(companyKey, 127);
+        if (strcmp(companyKey, "QUIT") == 0) {break;}
+        if (tree2Ptr->getEntry(CompanyObject(keyNumber,companyKey,"",companyKey,"","",""), temp)) {
+            displayCompany(temp);
+            cout << "\n\n" << endl;
+        }else{
+            cout << "Cound Not Find company\n\n" <<endl;
+        }
+
+    }
+    
 }

@@ -20,6 +20,7 @@ void printCompany(CompanyObject company);
 void printCompanyIndent(CompanyObject company);
 hashTable<CompanyObject> *buildHashTable(string fileName);
 void hashTable_Menu(hashTable<CompanyObject> *hashTable);
+void hashSearchOption(hashTable<CompanyObject> *hashTable);
 void displayHashTableMenu();
 
 #endif /* defined(__NasdaqTechDB__HashTable_Menu__) */

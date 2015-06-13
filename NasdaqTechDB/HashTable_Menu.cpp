@@ -101,17 +101,7 @@ void hashTable_Menu(hashTable<CompanyObject> *hashTable){
         
         switch (option) {
             case 'S':{
-                cout << "Enter company name: ";
-                char companyName[128];
-                cin.getline(companyName, 127);
-                cout << endl;
-                CompanyObject temp;
-                if (hashTable->getEntry(hashFunc,CompanyObject(0,"",companyName,"","","",""),temp)){
-                    printCompany(temp);
-                    cout << "\n" <<endl;
-                }else{
-                    cout << endl;
-                }
+                hashSearchOption(hashTable);
                 break;
             }
             case 'D':
@@ -152,3 +142,23 @@ void displayHashTableMenu()
     cout << "Q – Quit" <<endl;
 }
 
+
+void hashSearchOption(hashTable<CompanyObject> *hashTable){
+   
+    char companyName[128];
+    CompanyObject temp;
+        while (1) {
+            cout << "Enter company name (QUIT to stop searching): ";
+            cin.getline(companyName, 127);
+            cout << endl;
+            
+            if (strcmp(companyName, "QUIT") == 0) {break;}
+            if (hashTable->getEntry(hashFunc,CompanyObject(0,"",companyName,"","","",""),temp)){
+                printCompany(temp);
+                cout << "\n" <<endl;
+            }else{
+                cout << endl;
+            }
+    }
+   
+}
