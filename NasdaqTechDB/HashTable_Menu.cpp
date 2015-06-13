@@ -72,6 +72,7 @@ hashTable<CompanyObject> *buildHashTable(string fileName){
             rejectedList << tickerSymbol << " " << companyName << " (" << subsector << ") " << endl;
             rejectedList << CEO << " " << IPO_date << " " << country << "\n" << endl;
             
+            // Don't reject any companies.
         }
         
     }
@@ -86,6 +87,7 @@ hashTable<CompanyObject> *buildHashTable(string fileName){
 void hashTable_Menu(hashTable<CompanyObject> *hashTable){
     
     cout << "\n***Entering Hash Table Menu***\n"<<endl;
+    displayHashTableMenu();
     
     char option;
     char line[128];
@@ -127,11 +129,7 @@ void hashTable_Menu(hashTable<CompanyObject> *hashTable){
                 break;
                 
             case 'M':
-                cout << "S – Search by company name" <<endl;
-                cout << "D – Display list: display the contents of the hash table" <<endl;
-                cout << "P – Print the hashed table: show the index and indent synonyms" <<endl;
-                cout << "T – Show statistics" <<endl;
-                cout << "Q – Quit" <<endl;
+                displayHashTableMenu();
                 break;
                 
             case 'Q':
@@ -143,5 +141,14 @@ void hashTable_Menu(hashTable<CompanyObject> *hashTable){
                 break;
         }
     }
+}
+
+void displayHashTableMenu()
+{
+    cout << "S – Search by a unique key" <<endl;
+    cout << "D – Display list: display the contents of the hash table" <<endl;
+    cout << "P – Print the hashed table: show the index and indent synonyms" <<endl;
+    cout << "T – Show statistics" <<endl;
+    cout << "Q – Quit" <<endl;
 }
 

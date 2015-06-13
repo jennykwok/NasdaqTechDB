@@ -19,5 +19,6 @@
 
 BinarySearchTree<CompanyObject> *buildCompanyTree(string fileName, int keyNumber);
 void BST_Menu(int keyNumber,BinarySearchTree<CompanyObject>* tree2Ptr);
+void displayBSTMenu();
 
 #endif /* defined(__NasdaqTechDB__BST_Menu__) */
