@@ -18,9 +18,9 @@
 
 int hashFunc(CompanyObject company, int numberOfBuckets){
     int key = 0;
-    for (int i = 0; i < company.getTickerSymbol().length(); i++) {
+    for (int i = 0; i < company.getCompanyName().length(); i++) {
         //key += (int)front[i] * (int)front[i] * (int)front[i];
-        key += (int)company.getTickerSymbol()[i];
+        key += (int)company.getCompanyName()[i];
     }
     
     return (key % numberOfBuckets);
@@ -65,7 +65,7 @@ hashTable<CompanyObject> *buildHashTable(string fileName){
         getline(inputFile,CEO,';');
         getline(inputFile,subsector);
         
-        CompanyObject newCompany = CompanyObject(0,tickerSymbol,companyName,IPO_date,country,CEO,subsector);
+        CompanyObject newCompany = CompanyObject(2,tickerSymbol,companyName,IPO_date,country,CEO,subsector);
         
         if (!hashTable->insertEntry(hashFunc, newCompany)) {
             cout << "Failed to insert " << companyName << " to hash table!\n" << endl;
@@ -101,12 +101,12 @@ void hashTable_Menu(hashTable<CompanyObject> *hashTable){
         
         switch (option) {
             case 'S':{
-                cout << "Enter company ticker symbol: ";
-                char tickerSymbol[128];
-                cin.getline(tickerSymbol, 127);
+                cout << "Enter company name: ";
+                char companyName[128];
+                cin.getline(companyName, 127);
                 cout << endl;
                 CompanyObject temp;
-                if (hashTable->getEntry(hashFunc,CompanyObject(0,tickerSymbol,"","","","",""),temp)){
+                if (hashTable->getEntry(hashFunc,CompanyObject(0,"",companyName,"","","",""),temp)){
                     printCompany(temp);
                     cout << "\n" <<endl;
                 }else{
@@ -131,6 +131,11 @@ void hashTable_Menu(hashTable<CompanyObject> *hashTable){
             case 'M':
                 displayHashTableMenu();
                 break;
+                
+            case 'I':
+
+                break;
+
                 
             case 'Q':
                 inMenu = false;
