@@ -134,11 +134,6 @@ void hashTable_Menu(hashTable<CompanyObject> *hashTable){
                 cout << "Q – Quit" <<endl;
                 break;
                 
-            case 'I':
-
-                break;
-
-                
             case 'Q':
                 inMenu = false;
                 cout << "Hash Table Menu Exited!\n\n" <<endl;

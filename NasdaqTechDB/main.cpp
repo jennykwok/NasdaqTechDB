@@ -36,16 +36,16 @@ int main(int argc, const char * argv[]) {
             cout << "Type quit to exit main menu\n" <<endl;
         }
         
-        if (strcmp(line, "TICKER") == 0) {
+        if (strcmp(line, "BST1") == 0) {
             BST_Menu(0,tree1Ptr);
         }
-        if(strcmp(line, "IPO") == 0){
+        if(strcmp(line, "BST2") == 0){
             BST_Menu(1,tree2Ptr);
         }
-        if(strcmp(line, "NAME") == 0){
+        if(strcmp(line, "HASH") == 0){
             hashTable_Menu(hashTable);
         }
-        if (strcmp(line, "quit") == 0) {
+        if (strcmp(line, "QUIT") == 0) {
             cout << "Exiting Main Menu\n" <<endl;
             inMenu = false;
         }
