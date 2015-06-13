@@ -101,13 +101,13 @@ void insertManager(BinarySearchTree<CompanyObject>* treePtr,BinarySearchTree<Com
     char CEO[127];
     char subsector[127];
     
-    cout << "" <<endl;
-    cout << "\tCompany Name             : ";    cin.getline(companyName, 127);
-    cout << "\tCompany Ticker Symbol    : ";    cin.getline(tickerSymbol, 127);
-    cout << "\tCompany IPO Date         : ";    cin.getline(IPO_date, 9);
-    cout << "\tCompany Country          : ";    cin.getline(country, 127);
-    cout << "\tCompany CEO              : ";    cin.getline(CEO, 127);
-    cout << "\tCompany Subsector        : ";    cin.getline(subsector, 127);
+    cout << "INSERTING NEW COMPANY (Type CANCLE at any time to go back)" <<endl;
+    cout << "\tCompany Name             : ";    cin.getline(companyName, 127); if(strcmp(companyName, "CANCLE") == 0){return;}
+    cout << "\tCompany Ticker Symbol    : ";    cin.getline(tickerSymbol, 127); if(strcmp(tickerSymbol,"CANCLE")== 0){return;}
+    cout << "\tCompany IPO Date         : ";    cin.getline(IPO_date, 9); if(strcmp(IPO_date, "CANCLE") == 0){return;}
+    cout << "\tCompany Country          : ";    cin.getline(country, 127); if(strcmp(country, "CANCLE")== 0){return;}
+    cout << "\tCompany CEO              : ";    cin.getline(CEO, 127); if(strcmp(CEO, "CANCLE")== 0){return;}
+    cout << "\tCompany Subsector        : ";    cin.getline(subsector, 127); if(strcmp(subsector, "CANCLE")== 0){return;}
     
     CompanyObject newCompany = CompanyObject(0,tickerSymbol,companyName,IPO_date,country,CEO,subsector);
     CompanyObject temp;
@@ -119,6 +119,7 @@ void insertManager(BinarySearchTree<CompanyObject>* treePtr,BinarySearchTree<Com
         newCompany.setKeyNumber(2);
         hashTable->insertEntry(hashFunc, newCompany);
 
+        cout << companyName << " Succesfully inserted!"<<endl;
     }else{
         cout << "Failed to insert, company already exist in database!" <<endl;
     }
