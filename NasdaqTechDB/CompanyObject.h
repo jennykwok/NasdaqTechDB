@@ -19,8 +19,8 @@ class CompanyObject {
     
 private:
     int keyNumber;
-    string key[2];
-    string companyName;
+    string key[3];
+    //string companyName;
     string country;
     string CEO;
     string subsector;
@@ -37,13 +37,13 @@ public:
     ~CompanyObject(){};
     
     string getTickerSymbol(){return key[0];}
-    string getCompanyName(){return companyName;}
+    string getCompanyName(){return key[2];}
     string getIPO_date(){return key[1];}
     string getCountry(){return country;}
     string getCEO(){return CEO;}
     string getSubsector(){return subsector;}
     
-    void setCompanyName(string companyName){this->companyName = companyName;}
+    void setCompanyName(string companyName){this->key[2] = companyName;}
     //void setIPO_date(string IPO_date){this->IPO_date = IPO_date;}
     void setCountry(string Country){this->country = Country;}
     void setCEO(string CEO){this->CEO = CEO;}

@@ -12,7 +12,7 @@ CompanyObject::CompanyObject(){
     this->keyNumber = 0;
     this->key[0] = "";
     this->key[1] = "";
-    this->companyName = "";
+    this->key[2] = "";
     this->country = "";
     this->CEO = "";
     this->subsector = "";
@@ -22,7 +22,7 @@ CompanyObject::CompanyObject(int keyNumber, string tickerSymbol, string companyN
     this->keyNumber = keyNumber;
     this->key[0] = tickerSymbol;
     this->key[1] = IPO_date;
-    this->companyName = companyName;
+    this->key[2] = companyName;
     this->country = country;
     this->CEO = CEO;
     this->subsector = subsector;
@@ -72,7 +72,7 @@ bool CompanyObject::operator<=(const CompanyObject &compare){
 }
 
 void CompanyObject::displayCompany(){
-    cout << this->key[0] << " " << this->companyName << " (" << this->subsector << ") " << endl;
+    cout << this->key[0] << " " << this->key[2] << " (" << this->subsector << ") " << endl;
     cout << this->CEO << " " <<this->key[1] << " " << this->country << "\n" << endl;
     
 }

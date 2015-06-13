@@ -30,19 +30,19 @@ int main(int argc, const char * argv[]) {
         cin.getline(line, 127);
         
         if (line[0] == 'M') {
-            cout << "Type BST1 for binary seach tree with ticker symbol as key" <<endl;
-            cout << "Type BST2 for binary seach tree with IPO date as key" <<endl;
-            cout << "Type HASH for hash table" <<endl;
+            cout << "Type TICKER to search for company by ticker symbol" <<endl;
+            cout << "Type IPO to search for company by IPO date" <<endl;
+            cout << "Type NAME to search for company my name" <<endl;
             cout << "Type quit to exit main menu\n" <<endl;
         }
         
-        if (strcmp(line, "BST1") == 0) {
+        if (strcmp(line, "TICKER") == 0) {
             BST_Menu(0,tree1Ptr);
         }
-        if(strcmp(line, "BST2") == 0){
+        if(strcmp(line, "IPO") == 0){
             BST_Menu(1,tree2Ptr);
         }
-        if(strcmp(line, "HASH") == 0){
+        if(strcmp(line, "NAME") == 0){
             hashTable_Menu(hashTable);
         }
         if (strcmp(line, "quit") == 0) {
