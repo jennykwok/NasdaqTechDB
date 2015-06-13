@@ -64,7 +64,7 @@ int main(int argc, const char * argv[]) {
             BSTSearchOption(0, tree1Ptr);
         }
         if(strcmp(line, "IPO") == 0){
-            BSTSearchOption(1, tree1Ptr);
+            BSTSearchOption(1, tree2Ptr);
         }
         if(strcmp(line, "NAME") == 0){
             hashSearchOption(hashTable);
@@ -96,7 +96,7 @@ int main(int argc, const char * argv[]) {
 void insertManager(BinarySearchTree<CompanyObject>* treePtr,BinarySearchTree<CompanyObject>* treePtr2,hashTable<CompanyObject> *hashTable){
     char tickerSymbol[127];
     char companyName[127];
-    char IPO_date[9];
+    char IPO_date[127];
     char country[127];
     char CEO[127];
     char subsector[127];
@@ -104,7 +104,7 @@ void insertManager(BinarySearchTree<CompanyObject>* treePtr,BinarySearchTree<Com
     cout << "INSERTING NEW COMPANY (Type CANCLE at any time to go back)" <<endl;
     cout << "\tCompany Name             : ";    cin.getline(companyName, 127); if(strcmp(companyName, "CANCLE") == 0){return;}
     cout << "\tCompany Ticker Symbol    : ";    cin.getline(tickerSymbol, 127); if(strcmp(tickerSymbol,"CANCLE")== 0){return;}
-    cout << "\tCompany IPO Date         : ";    cin.getline(IPO_date, 9); if(strcmp(IPO_date, "CANCLE") == 0){return;}
+    cout << "\tCompany IPO Date         : ";    cin.getline(IPO_date, 127); IPO_date[8] = '\0'; if(strcmp(IPO_date, "CANCLE") == 0){return;}
     cout << "\tCompany Country          : ";    cin.getline(country, 127); if(strcmp(country, "CANCLE")== 0){return;}
     cout << "\tCompany CEO              : ";    cin.getline(CEO, 127); if(strcmp(CEO, "CANCLE")== 0){return;}
     cout << "\tCompany Subsector        : ";    cin.getline(subsector, 127); if(strcmp(subsector, "CANCLE")== 0){return;}
