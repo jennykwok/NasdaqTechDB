@@ -48,6 +48,7 @@ public:
     void setCountry(string Country){this->country = Country;}
     void setCEO(string CEO){this->CEO = CEO;}
     void setSubsector(string subsector){this->subsector = subsector;}
+    void setKeyNumber(int keyNumber){this->keyNumber = keyNumber;}
     
     void displayCompany();
     

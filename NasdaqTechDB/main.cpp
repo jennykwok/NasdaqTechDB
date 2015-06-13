@@ -12,6 +12,8 @@
 
 using namespace std;
 
+void insertManager(BinarySearchTree<CompanyObject>* treePtr,BinarySearchTree<CompanyObject>* treePtr2,hashTable<CompanyObject> *hashTable);
+
 int main(int argc, const char * argv[]) {
     // insert code here...
     
@@ -37,7 +39,7 @@ int main(int argc, const char * argv[]) {
             cout << "Type IPO search companies by IPO date" << endl;
             cout << "Type NAME search companies by name" << endl;
             cout << "Type ALL display all companies sorted by ticker symbol" << endl;
-            //cout << "Type NAME search companies by name" << endl << endl;
+            cout << "Type INSERT to insert a new company" << endl << endl;
             cout << "Type quit to exit main menu\n\n" <<endl;
  
             
@@ -67,6 +69,9 @@ int main(int argc, const char * argv[]) {
         if(strcmp(line, "NAME") == 0){
             hashSearchOption(hashTable);
         }
+        if(strcmp(line, "INSERT") == 0){
+            insertManager(tree1Ptr, tree2Ptr, hashTable);
+        }
         if(strcmp(line, "ALL") == 0){
             tree1Ptr->inOrder(displayCompany);
         }
@@ -88,6 +93,40 @@ int main(int argc, const char * argv[]) {
     
 }
 
-void searchManager(){
+void insertManager(BinarySearchTree<CompanyObject>* treePtr,BinarySearchTree<CompanyObject>* treePtr2,hashTable<CompanyObject> *hashTable){
+    char tickerSymbol[127];
+    char companyName[127];
+    char IPO_date[9];
+    char country[127];
+    char CEO[127];
+    char subsector[127];
+    
+    cout << "" <<endl;
+    cout << "\tCompany Name             : ";    cin.getline(companyName, 127);
+    cout << "\tCompany Ticker Symbol    : ";    cin.getline(tickerSymbol, 127);
+    cout << "\tCompany IPO Date         : ";    cin.getline(IPO_date, 9);
+    cout << "\tCompany Country          : ";    cin.getline(country, 127);
+    cout << "\tCompany CEO              : ";    cin.getline(CEO, 127);
+    cout << "\tCompany Subsector        : ";    cin.getline(subsector, 127);
+    
+    CompanyObject newCompany = CompanyObject(0,tickerSymbol,companyName,IPO_date,country,CEO,subsector);
+    CompanyObject temp;
+    
+    if (!treePtr->getEntry(newCompany, temp) || !treePtr2->getEntry(newCompany, temp) || !hashTable->getEntry(hashFunc, newCompany, temp)) {
+        treePtr->insert(newCompany);
+        newCompany.setKeyNumber(1);
+        treePtr2->insert(newCompany);
+        newCompany.setKeyNumber(2);
+        hashTable->insertEntry(hashFunc, newCompany);
+
+    }else{
+        cout << "Failed to insert, company already exist in database!" <<endl;
+    }
+    
+   
     
 }
+
+
+
+
