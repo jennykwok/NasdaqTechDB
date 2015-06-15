@@ -80,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				B7FF345D1B227CA700D2ECFB /* NasdaqTechDB */,
-				B7FF345E1B227CA700D2ECFB /* main.cpp */,
 				B70FC8411B2787E200336E4C /* BST_Menu.cpp */,
 				B70FC8421B2787E200336E4C /* BST_Menu.h */,
 				B758F6C61B267BD7008A1E0C /* CompanyObject.cpp */,
@@ -88,6 +87,7 @@
 				B70FC83C1B27862A00336E4C /* HashTable_Menu.cpp */,
 				B70FC83D1B27862A00336E4C /* HashTable_Menu.h */,
 				B70FC83F1B27866C00336E4C /* techList.txt */,
+				B7FF345E1B227CA700D2ECFB /* main.cpp */,
 				B7FF345C1B227CA700D2ECFB /* Products */,
 			);
 			sourceTree = "<group>";

@@ -123,10 +123,11 @@ bool hashTable<T>::deleteEntry(int hashFunc(T entry,int numberOfBuckets), T entr
     for(int i = 0; i < numberOfBuckets; i++){
         int addressLooper = (address + i)%numberOfBuckets;
         
-        for (int i = 0; i < BucketSize; i++) {
-            if (table[addressLooper*BucketSize +i] != NULL) {
-                if (*table[addressLooper*BucketSize + i] == entry) {
-                    delete table[addressLooper*BucketSize + 1];
+        for (int j = 0; j < BucketSize; j++) {
+            if (table[addressLooper*BucketSize +j] != NULL) {
+                if ((*table[addressLooper*BucketSize + j]).getItem() == entry) {
+                    delete table[addressLooper*BucketSize + j];
+                    table[addressLooper*BucketSize + j] = NULL;
                     return true;
                 }
             }
@@ -134,7 +135,7 @@ bool hashTable<T>::deleteEntry(int hashFunc(T entry,int numberOfBuckets), T entr
         
     }
     
-    printf("Failed to delete entery, entry not found!\n",address);
+    printf("Failed to delete entery, entry not found!\n");
     return false;
     
 }

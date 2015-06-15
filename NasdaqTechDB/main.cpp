@@ -12,14 +12,15 @@
 
 using namespace std;
 
+void mainMenuManager(BinarySearchTree<CompanyObject>* treePtr,BinarySearchTree<CompanyObject>* treePtr2,hashTable<CompanyObject> *hashTable);
 void insertManager(BinarySearchTree<CompanyObject>* treePtr,BinarySearchTree<CompanyObject>* treePtr2,hashTable<CompanyObject> *hashTable);
+void deleteManager(BinarySearchTree<CompanyObject>* treePtr,BinarySearchTree<CompanyObject>* treePtr2,hashTable<CompanyObject> *hashTable);
 
 int main(int argc, const char * argv[]) {
     // insert code here...
     
     
-    char line[128];
-    bool inMenu = true;
+   
     
     BinarySearchTree<CompanyObject>* tree1Ptr = buildCompanyTree("techList.txt", 0);
     BinarySearchTree<CompanyObject>* tree2Ptr = buildCompanyTree("techList.txt", 1);
@@ -29,61 +30,7 @@ int main(int argc, const char * argv[]) {
     cout << "you can easily look for the current NAsdaq technology companies' general information, " << endl;
     cout << "like ticker symbol, full name, IPO year, headquartered country, CEO name, subsector." << endl << endl;
     
-    while (inMenu) {
-        cout << "***Main Menu***\nPlease enter an option (M for menu): ";
-        
-        cin.getline(line, 127);
-        
-        if (line[0] == 'M') {
-            cout << "Type TICKER to search companies by ticker symbol" << endl;
-            cout << "Type IPO search companies by IPO date" << endl;
-            cout << "Type NAME search companies by name" << endl;
-            cout << "Type ALL display all companies sorted by ticker symbol" << endl;
-            cout << "Type INSERT to insert a new company" << endl << endl;
-            cout << "Type quit to exit main menu\n\n" <<endl;
- 
-            
-            
-            //cout << "Type BST1 for binary seach tree with ticker symbol as key" <<endl;
-            //cout << "Type BST2 for binary seach tree with IPO date as key" <<endl;
-            //cout << "Type HASH for hash table" <<endl;
-            
-        }
-        
-        if (strcmp(line, "*BST1*") == 0) {
-            BST_Menu(0,tree1Ptr);
-        }
-        if(strcmp(line, "*BST2*") == 0){
-            BST_Menu(1,tree2Ptr);
-        }
-        if(strcmp(line, "*HASH*") == 0){
-            hashTable_Menu(hashTable);
-        }
-        
-        if (strcmp(line, "TICKER") == 0) {
-            BSTSearchOption(0, tree1Ptr);
-        }
-        if(strcmp(line, "IPO") == 0){
-            BSTSearchOption(1, tree2Ptr);
-        }
-        if(strcmp(line, "NAME") == 0){
-            hashSearchOption(hashTable);
-        }
-        if(strcmp(line, "INSERT") == 0){
-            insertManager(tree1Ptr, tree2Ptr, hashTable);
-        }
-        if(strcmp(line, "ALL") == 0){
-            tree1Ptr->inOrder(displayCompany);
-        }
-
-
-        
-        if (strcmp(line, "QUIT") == 0) {
-            cout << "Exiting Main Menu\n" <<endl;
-            inMenu = false;
-        }
-        
-    }
+    mainMenuManager(tree1Ptr, tree2Ptr, hashTable);
     
     delete tree1Ptr;
     delete tree2Ptr;
@@ -128,6 +75,90 @@ void insertManager(BinarySearchTree<CompanyObject>* treePtr,BinarySearchTree<Com
     
 }
 
+void deleteManager(BinarySearchTree<CompanyObject>* treePtr,BinarySearchTree<CompanyObject>* treePtr2,hashTable<CompanyObject> *hashTable){
+    
+    char line[128];
+    cout << "Please enter ticker symbol of company to be deleted : ";
+    cin.getline(line, 128);
+    CompanyObject toBeDeleted;
+    CompanyObject temp = CompanyObject(0, line, "", "", "", "", "");
+    if (treePtr->getEntry(temp, toBeDeleted)) {
+        treePtr->remove(toBeDeleted);
+        toBeDeleted.setKeyNumber(1);
+        treePtr2->remove(toBeDeleted);
+        toBeDeleted.setKeyNumber(2);
+        hashTable->deleteEntry(hashFunc, toBeDeleted);
+        cout << "Succesfully deleted company\n" <<endl;
+    }else{
+        cout << "Unable to delete company\n" <<endl;
+    }
+    
+    
+}
 
+void mainMenuManager(BinarySearchTree<CompanyObject>* tree1Ptr,BinarySearchTree<CompanyObject>* tree2Ptr,hashTable<CompanyObject> *hashTable){
+    
+    char line[128];
+    bool inMenu = true;
+    
+    while (inMenu) {
+        cout << "***Main Menu***\nPlease enter an option (M for menu): ";
+        
+        cin.getline(line, 127);
+        
+        if (line[0] == 'M') {
+            cout << "Type TICKER to search companies by ticker symbol" << endl;
+            cout << "Type IPO search companies by IPO date" << endl;
+            cout << "Type NAME search companies by name" << endl;
+            cout << "Type ALL display all companies sorted by ticker symbol" << endl;
+            cout << "Type INSERT to insert a new company" << endl << endl;
+            cout << "Type quit to exit main menu\n\n" <<endl;
+            
+            
+            
+            //cout << "Type BST1 for binary seach tree with ticker symbol as key" <<endl;
+            //cout << "Type BST2 for binary seach tree with IPO date as key" <<endl;
+            //cout << "Type HASH for hash table" <<endl;
+            
+        }
+        
+        if (strcmp(line, "*BST1*") == 0) {
+            BST_Menu(0,tree1Ptr);
+        }
+        if(strcmp(line, "*BST2*") == 0){
+            BST_Menu(1,tree2Ptr);
+        }
+        if(strcmp(line, "*HASH*") == 0){
+            hashTable_Menu(hashTable);
+        }
+        
+        if (strcmp(line, "TICKER") == 0) {
+            BSTSearchOption(0, tree1Ptr);
+        }
+        if(strcmp(line, "IPO") == 0){
+            BSTSearchOption(1, tree2Ptr);
+        }
+        if(strcmp(line, "NAME") == 0){
+            hashSearchOption(hashTable);
+        }
+        if(strcmp(line, "INSERT") == 0){
+            insertManager(tree1Ptr, tree2Ptr, hashTable);
+        }
+        if(strcmp(line, "DELETE") == 0){
+            deleteManager(tree1Ptr, tree2Ptr, hashTable);
+        }
+        if(strcmp(line, "ALL") == 0){
+            tree1Ptr->inOrder(displayCompany);
+        }
+        
+        
+        
+        if (strcmp(line, "QUIT") == 0) {
+            cout << "Exiting Main Menu\n" <<endl;
+            inMenu = false;
+        }
+        
+    }
 
+}
 
