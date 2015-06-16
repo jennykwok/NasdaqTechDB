@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <fstream>
 #include "hashEntry.h"
 
 using namespace std;
@@ -41,6 +42,7 @@ public:
     bool deleteEntry(int hashFunc(T entry,int numberOfBuckets), T entry);
     void printHashIndented(void printEntry(T entry));
     void printHash(void printEntry(T entry));
+    void printHashToFile(void printEntry(T entry, ofstream &outputFile), ofstream &outputFile);
     void displayStats();
 };
 
@@ -200,6 +202,15 @@ void hashTable<T>::printHash(void printEntry(T entry)) {
     for (int i = 0; i < numberOfBuckets*BucketSize; i++) {
         if(table[i] != NULL){
             printEntry(table[i]->getItem());
+        }
+    }
+}
+
+template <class T>
+void hashTable<T>::printHashToFile(void printEntry(T entry, ofstream &outputFile), ofstream &outputFile) {
+    for (int i = 0; i < numberOfBuckets*BucketSize; i++) {
+        if(table[i] != NULL){
+            printEntry(table[i]->getItem(),outputFile);
         }
     }
 }

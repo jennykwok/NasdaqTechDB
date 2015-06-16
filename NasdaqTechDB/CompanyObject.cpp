@@ -72,7 +72,7 @@ bool CompanyObject::operator<=(const CompanyObject &compare){
 }
 
 void CompanyObject::displayCompany(){
-    cout << this->key[0] << " " << this->key[2] << " (" << this->subsector << ") " << endl;
-    cout << this->CEO << " " <<this->key[1] << " " << this->country << "\n" << endl;
+    cout << "\n\t| " << this->key[0] << " " << this->key[2] << " (" << this->subsector << ") " << endl;
+    cout << "\t| " << this->CEO << " " <<this->key[1] << " " << this->country << "\n" << endl;
     
 }

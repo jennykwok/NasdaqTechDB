@@ -19,13 +19,18 @@
 int hashFunc(CompanyObject company, int numberOfBuckets){
     int key = 0;
     for (int i = 0; i < company.getCompanyName().length(); i++) {
-        key += (int)company.getCompanyName()[i] + 4;
+        key += (int)company.getCompanyName()[i] + 6;
     }
     return (key % numberOfBuckets);
 }
 
 void printCompany(CompanyObject company){
     company.displayCompany();
+}
+
+void printCompanyToFile(CompanyObject company, ofstream &outputFile){
+    outputFile << company.getTickerSymbol() << ";" << company.getCompanyName() << ";" << company.getIPO_date() << ";"
+               << company.getCountry() << ";" <<company.getCEO() << ";" << company.getSubsector() << endl;
 }
 
 void printCompanyIndent(CompanyObject company){
