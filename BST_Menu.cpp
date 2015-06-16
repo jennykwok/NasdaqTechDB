@@ -168,4 +168,5 @@ void BSTSearchOption(int keyNumber, BinarySearchTree<CompanyObject>* tree2Ptr){
 
     }
     
+    cout << "" <<endl;
 }

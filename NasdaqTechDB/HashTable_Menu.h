@@ -17,6 +17,7 @@
 
 int hashFunc(CompanyObject company, int numberOfBuckets);
 void printCompany(CompanyObject company);
+void printCompanyToFile(CompanyObject company, ofstream &outputFile);
 void printCompanyIndent(CompanyObject company);
 hashTable<CompanyObject> *buildHashTable(string fileName);
 void hashTable_Menu(hashTable<CompanyObject> *hashTable);

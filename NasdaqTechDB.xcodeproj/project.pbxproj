@@ -28,11 +28,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B70FC83C1B27862A00336E4C /* HashTable_Menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HashTable_Menu.cpp; path = NasdaqTechDB/HashTable_Menu.cpp; sourceTree = "<group>"; };
-		B70FC83D1B27862A00336E4C /* HashTable_Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HashTable_Menu.h; path = NasdaqTechDB/HashTable_Menu.h; sourceTree = "<group>"; };
+		B70FC83C1B27862A00336E4C /* HashTable_Menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HashTable_Menu.cpp; sourceTree = "<group>"; };
+		B70FC83D1B27862A00336E4C /* HashTable_Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HashTable_Menu.h; sourceTree = "<group>"; };
 		B70FC83F1B27866C00336E4C /* techList.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = techList.txt; sourceTree = "<group>"; };
-		B70FC8411B2787E200336E4C /* BST_Menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BST_Menu.cpp; sourceTree = "<group>"; };
-		B70FC8421B2787E200336E4C /* BST_Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BST_Menu.h; sourceTree = "<group>"; };
+		B70FC8411B2787E200336E4C /* BST_Menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BST_Menu.cpp; path = ../BST_Menu.cpp; sourceTree = "<group>"; };
+		B70FC8421B2787E200336E4C /* BST_Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BST_Menu.h; path = ../BST_Menu.h; sourceTree = "<group>"; };
 		B758F6C01B267B0E008A1E0C /* hashTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hashTable.h; sourceTree = "<group>"; };
 		B758F6C11B267B0E008A1E0C /* hashEntry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hashEntry.h; sourceTree = "<group>"; };
 		B758F6C21B267B73008A1E0C /* BinaryTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinaryTree.h; sourceTree = "<group>"; };
@@ -56,6 +56,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B706C1651B2FF41F00FBC459 /* DeveloperMenus */ = {
+			isa = PBXGroup;
+			children = (
+				B70FC8411B2787E200336E4C /* BST_Menu.cpp */,
+				B70FC8421B2787E200336E4C /* BST_Menu.h */,
+				B70FC83C1B27862A00336E4C /* HashTable_Menu.cpp */,
+				B70FC83D1B27862A00336E4C /* HashTable_Menu.h */,
+			);
+			name = DeveloperMenus;
+			sourceTree = "<group>";
+		};
 		B758F6BE1B267A9D008A1E0C /* BST */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,12 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				B7FF345D1B227CA700D2ECFB /* NasdaqTechDB */,
-				B70FC8411B2787E200336E4C /* BST_Menu.cpp */,
-				B70FC8421B2787E200336E4C /* BST_Menu.h */,
 				B758F6C61B267BD7008A1E0C /* CompanyObject.cpp */,
 				B758F6C71B267BD7008A1E0C /* CompanyObject.h */,
-				B70FC83C1B27862A00336E4C /* HashTable_Menu.cpp */,
-				B70FC83D1B27862A00336E4C /* HashTable_Menu.h */,
 				B70FC83F1B27866C00336E4C /* techList.txt */,
 				B7FF345E1B227CA700D2ECFB /* main.cpp */,
 				B7FF345C1B227CA700D2ECFB /* Products */,
@@ -103,6 +110,7 @@
 		B7FF345D1B227CA700D2ECFB /* NasdaqTechDB */ = {
 			isa = PBXGroup;
 			children = (
+				B706C1651B2FF41F00FBC459 /* DeveloperMenus */,
 				B758F6BF1B267AB1008A1E0C /* Hash Table */,
 				B758F6BE1B267A9D008A1E0C /* BST */,
 			);

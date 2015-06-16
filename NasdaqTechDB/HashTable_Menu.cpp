@@ -30,6 +30,11 @@ void printCompany(CompanyObject company){
     company.displayCompany();
 }
 
+void printCompanyToFile(CompanyObject company, ofstream &outputFile){
+    outputFile << company.getTickerSymbol() << ";" << company.getCompanyName() << ";" << company.getIPO_date() << ";"
+               << company.getCountry() << ";" <<company.getCEO() << ";" << company.getSubsector() << endl;
+}
+
 void printCompanyIndent(CompanyObject company){
     cout << company.getTickerSymbol() << ", " << company.getCompanyName() << " (" << company.getSubsector() << ") " << endl;
     
