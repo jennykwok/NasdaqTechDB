@@ -142,6 +142,10 @@ void displayHashTableMenu()
     cout << "Q – Quit" <<endl;
 }
 
+/***********************************************
+ hashSearchOption: takes in an hashSearchOption takes a 
+ hashTable and perform search menu. (Sub menu of full hashTable menu)
+ **********************************************/
 
 void hashSearchOption(hashTable<CompanyObject> *hashTable){
    
