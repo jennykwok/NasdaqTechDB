@@ -56,8 +56,8 @@ BinarySearchTree<CompanyObject> *buildCompanyTree(string fileName, int keyNumber
 
 void BST_Menu(int keyNumber, BinarySearchTree<CompanyObject>* tree2Ptr){
     
-    cout << "\n***Entering Binary Search Tree ("<< ((keyNumber == 0) ? "ticker symbol)***\n":"IPO date)***\n") <<endl;
-    
+    cout << "\n\n----------- Entering Binary Search Tree ("<< ((keyNumber == 0) ? "ticker symbol) -----------":"IPO date) ----------------") <<endl;
+    displayBSTMenu();
     
     char option;
     char line[128];
@@ -66,7 +66,7 @@ void BST_Menu(int keyNumber, BinarySearchTree<CompanyObject>* tree2Ptr){
     CompanyObject temp;
     while (inMenu) {
         
-        cout << "Please enter an option (M for Menu): ";
+        cout << "Enter Option: ";
         cin.getline(line, 127);
         option = line[0];
         
@@ -132,7 +132,7 @@ void BST_Menu(int keyNumber, BinarySearchTree<CompanyObject>* tree2Ptr){
                 break;
                 
             case 'Q':
-                cout << "BST Menu exited!\n\n" <<endl;
+                cout << "BST Menu exited!" <<endl;
                 inMenu = false;
                 break;
                 
@@ -151,7 +151,7 @@ void displayBSTMenu()
     cout << "S – Search by a unique key"<<endl;
     cout << "R – Print the items within a given range in the tree"<<endl;
     cout << "H – Help – to show the menu"<<endl;
-    cout << "Q – Quit\n\n"<<endl;
+    cout << "Q – Quit\n"<<endl;
 
 }
 

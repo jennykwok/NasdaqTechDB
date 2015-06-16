@@ -92,7 +92,7 @@ hashTable<CompanyObject> *buildHashTable(string fileName){
 
 void hashTable_Menu(hashTable<CompanyObject> *hashTable){
     
-    cout << "\n***Entering Hash Table Menu***\n"<<endl;
+    cout << "\n\n------------------- Entering Hash Table Menu ----------------------"<<endl;
     displayHashTableMenu();
     
     char option;
@@ -101,7 +101,7 @@ void hashTable_Menu(hashTable<CompanyObject> *hashTable){
     
     while (inMenu) {
         
-        cout << "Please enter an option (M for menu): ";
+        cout << "\nEnter option: ";
         cin.getline(line, 127);
         option = line[0];
         
@@ -130,7 +130,7 @@ void hashTable_Menu(hashTable<CompanyObject> *hashTable){
                 
             case 'Q':
                 inMenu = false;
-                cout << "Hash Table Menu Exited!\n\n" <<endl;
+                cout << "Hash Table Menu Exited!" <<endl;
                 break;
                 
             default:
