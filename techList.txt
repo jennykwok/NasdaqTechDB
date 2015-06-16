@@ -1,5 +1,5 @@
 LOGI;Logitech International S.A.;04041997;USA;Jerry Quindlen;Computer peripheral equipment
-FB;Facebook, Inc.;05182012;USA;Mark Zuckerberg;Computer Software
+FB;Facebook Inc.;05182012;USA;Mark Zuckerberg;Computer Software
 FLEX;Flextronics International Ltd.;05251994;Singapore;Mike McNamara;Electrical Products
 APPL;Apple Inc.;12191980;USA;Tim Cook;Computer Manufacturing
 WB;Weibo;04172014;China;Charles Chao;Computer Software
