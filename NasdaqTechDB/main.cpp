@@ -112,6 +112,7 @@ void mainMenuManager(BinarySearchTree<CompanyObject>* tree1Ptr,BinarySearchTree<
             cout << "Type NAME search companies by name" << endl;
             cout << "Type ALL display all companies sorted by ticker symbol" << endl;
             cout << "Type INSERT to insert a new company" << endl << endl;
+            cout << "Type DELETE to delete compamy by ticker symbol" << endl;
             cout << "Type quit to exit main menu\n\n" <<endl;
             
             
@@ -122,6 +123,8 @@ void mainMenuManager(BinarySearchTree<CompanyObject>* tree1Ptr,BinarySearchTree<
             
         }
         
+        // Developer Options
+        
         if (strcmp(line, "*BST1*") == 0) {
             BST_Menu(0,tree1Ptr);
         }
@@ -131,6 +134,9 @@ void mainMenuManager(BinarySearchTree<CompanyObject>* tree1Ptr,BinarySearchTree<
         if(strcmp(line, "*HASH*") == 0){
             hashTable_Menu(hashTable);
         }
+        
+        
+        // Main options
         
         if (strcmp(line, "TICKER") == 0) {
             BSTSearchOption(0, tree1Ptr);
