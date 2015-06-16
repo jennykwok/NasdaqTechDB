@@ -67,6 +67,10 @@ hashTable<CompanyObject> *buildHashTable(string fileName){
         getline(inputFile,CEO,';');
         getline(inputFile,subsector);
         
+        if (tickerSymbol.compare("\n")) {
+            break;
+        }
+        
         CompanyObject newCompany = CompanyObject(2,tickerSymbol,companyName,IPO_date,country,CEO,subsector);        // key: Name
         
         if (!hashTable->insertEntry(hashFunc, newCompany)) {        // pass the hashFunc to template function insertEntry.

@@ -22,9 +22,13 @@ void displayMainOptions();
 
 int main(int argc, const char * argv[]) {
     
-    BinarySearchTree<CompanyObject>* tree1Ptr = buildCompanyTree("techList.txt", 0);    // 0: ticker symbol
-    BinarySearchTree<CompanyObject>* tree2Ptr = buildCompanyTree("techList.txt", 1);    // 1: IPO
-    hashTable<CompanyObject> *hashTable = buildHashTable("techList.txt");               // default: name
+//    BinarySearchTree<CompanyObject>* tree1Ptr = buildCompanyTree("techList.txt", 0);
+//    BinarySearchTree<CompanyObject>* tree2Ptr = buildCompanyTree("techList.txt", 1);
+//    hashTable<CompanyObject> *hashTable = buildHashTable("techList.txt");
+//    
+    BinarySearchTree<CompanyObject>* tree1Ptr = buildCompanyTree("savedData.txt", 0);
+    BinarySearchTree<CompanyObject>* tree2Ptr = buildCompanyTree("savedData.txt", 1);
+    hashTable<CompanyObject> *hashTable = buildHashTable("savedData.txt");
     
     cout << "=========================================================================================================" << endl;
     cout << "|                             Welcome to Nasdaq Technology Companies Database!                          |" << endl;
@@ -126,14 +130,38 @@ void mainMenuManager(BinarySearchTree<CompanyObject>* tree1Ptr,BinarySearchTree<
             
         }
         
-        if (strcmp(line, "*BST1*") == 0) {          // hidden
-            BST_Menu(0,tree1Ptr);
-        }
-        if(strcmp(line, "*BST2*") == 0){            // hidden
-            BST_Menu(1,tree2Ptr);
-        }
-        if(strcmp(line, "*HASH*") == 0){            // hidden
-            hashTable_Menu(hashTable);
+        // Developer Options
+        
+        if (strcmp(line, "*DEVELOPER*") == 0) {
+ 
+            char line[128];
+            bool inMenu = true;
+            while (inMenu) {
+                cout << "->  BST1       to enter ticker symbol BST menu" << endl;
+                cout << "->  BST2       to enter IPO BST menu" << endl;
+                cout << "->  HASH       to enter Hash Table menu" << endl;
+                cout << "->  QUIT       to exit Developer Menu\n\n" <<endl;
+
+
+                cout << "Enter Developer Option: ";
+                cin.getline(line, 127);
+                
+                if (strcmp(line, "BST1") == 0) {
+                    BST_Menu(0,tree1Ptr);
+                }
+                if(strcmp(line, "BST2") == 0){
+                    BST_Menu(1,tree2Ptr);
+                }
+                if(strcmp(line, "HASH") == 0){
+                    hashTable_Menu(hashTable);
+                }
+                if(strcmp(line, "QUIT") == 0){
+                    cout << "\n" <<endl;
+                    inMenu = false;
+                }
+
+
+            }
         }
         
         
@@ -160,8 +188,9 @@ void mainMenuManager(BinarySearchTree<CompanyObject>* tree1Ptr,BinarySearchTree<
         
         
         if (strcmp(line, "QUIT") == 0) {
-            cout << "Exiting Main Menu\n" << endl;
-            cout << "Thank you for using our NAsdaq Technology Companies Database." << endl;
+            ofstream outputFile("savedData.txt");
+            hashTable->printHashToFile(printCompanyToFile, outputFile);
+            outputFile.close();
             inMenu = false;
         }
         

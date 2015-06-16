@@ -36,6 +36,10 @@ BinarySearchTree<CompanyObject> *buildCompanyTree(string fileName, int keyNumber
         getline(inputFile,CEO,';');
         getline(inputFile,subsector);
         
+        if (tickerSymbol.compare("\n")) {
+            break;
+        }
+        
         CompanyObject newCompany = CompanyObject(keyNumber,tickerSymbol,companyName,IPO_date,country,CEO,subsector);
         CompanyObject temp;
         if (!treePtr->getEntry(newCompany, temp)) {
