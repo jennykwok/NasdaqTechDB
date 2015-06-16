@@ -19,8 +19,7 @@
 int hashFunc(CompanyObject company, int numberOfBuckets){
     int key = 0;
     for (int i = 0; i < company.getCompanyName().length(); i++) {
-        //key += (int)front[i] * (int)front[i] * (int)front[i];
-        key += (int)company.getCompanyName()[i];
+        key += (int)company.getCompanyName()[i] + 4;
     }
     
     return (key % numberOfBuckets);

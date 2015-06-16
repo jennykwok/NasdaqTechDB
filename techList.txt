@@ -1,3 +1,4 @@
+LOGI;Logitech International S.A.;04041997;USA;Jerry Quindlen;Computer peripheral equipment
 FB;Facebook, Inc.;05182012;USA;Mark Zuckerberg;Computer Software
 FLEX;Flextronics International Ltd.;05251994;Singapore;Mike McNamara;Electrical Products
 APPL;Apple Inc.;12191980;USA;Tim Cook;Computer Manufacturing
@@ -10,7 +11,6 @@ BRCM;Broadcom Corporation;04171998;USA;Scott McGregor;Semiconductors
 CSCO;Cisco Systems Inc.;02231990;USA;John Chambers;Computer Communications Equipment
 GRPN;Groupon Inc.;11072011;USA;Eric Lefkofsky;Advertising
 INTC;Intel Corporation;01131978;USA;Brian Krzanich;Semiconductors
-LOGI;Logitech International S.A.;04041997;USA;Jerry Quindlen;Computer peripheral equipment
 SYNA;Synaptics Incorporated;01292002;USA;Rick Bergman;EDP Services
 TRIP;TripAdvisor Inc.;12212011;USA;Stephen Kaufer;Computer Software
 SNDK;SanDisk Corporation;11171995;USA;Sanjay Mehrotra;Electronic Components
