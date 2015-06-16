@@ -22,9 +22,9 @@ int main(int argc, const char * argv[]) {
     
    
     
-    BinarySearchTree<CompanyObject>* tree1Ptr = buildCompanyTree("techList.txt", 0);
-    BinarySearchTree<CompanyObject>* tree2Ptr = buildCompanyTree("techList.txt", 1);
-    hashTable<CompanyObject> *hashTable = buildHashTable("techList.txt");
+    BinarySearchTree<CompanyObject>* tree1Ptr = buildCompanyTree("techList.txt", 0);    // 0: ticker symbol
+    BinarySearchTree<CompanyObject>* tree2Ptr = buildCompanyTree("techList.txt", 1);    // 1: IPO
+    hashTable<CompanyObject> *hashTable = buildHashTable("techList.txt");               // default: name
     
     cout << "Welcome to Nasdaq Tech Companies Database, " << endl;
     cout << "you can easily look for the current NAsdaq technology companies' general information, " << endl;
@@ -56,14 +56,14 @@ void insertManager(BinarySearchTree<CompanyObject>* treePtr,BinarySearchTree<Com
     cout << "\tCompany CEO              : ";    cin.getline(CEO, 127); if(strcmp(CEO, "CANCLE")== 0){return;}
     cout << "\tCompany Subsector        : ";    cin.getline(subsector, 127); if(strcmp(subsector, "CANCLE")== 0){return;}
     
-    CompanyObject newCompany = CompanyObject(0,tickerSymbol,companyName,IPO_date,country,CEO,subsector);
+    CompanyObject newCompany = CompanyObject(0,tickerSymbol,companyName,IPO_date,country,CEO,subsector);    // key: ticker symbol
     CompanyObject temp;
     
     if (!treePtr->getEntry(newCompany, temp) || !treePtr2->getEntry(newCompany, temp) || !hashTable->getEntry(hashFunc, newCompany, temp)) {
         treePtr->insert(newCompany);
-        newCompany.setKeyNumber(1);
+        newCompany.setKeyNumber(1);         // change key to IPO for tree2
         treePtr2->insert(newCompany);
-        newCompany.setKeyNumber(2);
+        newCompany.setKeyNumber(2);         // change key to name for hash table
         hashTable->insertEntry(hashFunc, newCompany);
 
         cout << companyName << " Succesfully inserted!"<<endl;
@@ -75,13 +75,14 @@ void insertManager(BinarySearchTree<CompanyObject>* treePtr,BinarySearchTree<Com
     
 }
 
+// delete by ticker symbol
 void deleteManager(BinarySearchTree<CompanyObject>* treePtr,BinarySearchTree<CompanyObject>* treePtr2,hashTable<CompanyObject> *hashTable){
     
     char line[128];
     cout << "Please enter ticker symbol of company to be deleted : ";
     cin.getline(line, 128);
     CompanyObject toBeDeleted;
-    CompanyObject temp = CompanyObject(0, line, "", "", "", "", "");
+    CompanyObject temp = CompanyObject(0, line, "", "", "", "", "");    // Set key = ticker symbol.
     if (treePtr->getEntry(temp, toBeDeleted)) {
         treePtr->remove(toBeDeleted);
         toBeDeleted.setKeyNumber(1);
@@ -122,13 +123,13 @@ void mainMenuManager(BinarySearchTree<CompanyObject>* tree1Ptr,BinarySearchTree<
             
         }
         
-        if (strcmp(line, "*BST1*") == 0) {
+        if (strcmp(line, "*BST1*") == 0) {          // hidden
             BST_Menu(0,tree1Ptr);
         }
-        if(strcmp(line, "*BST2*") == 0){
+        if(strcmp(line, "*BST2*") == 0){            // hidden
             BST_Menu(1,tree2Ptr);
         }
-        if(strcmp(line, "*HASH*") == 0){
+        if(strcmp(line, "*HASH*") == 0){            // hidden
             hashTable_Menu(hashTable);
         }
         
@@ -154,7 +155,8 @@ void mainMenuManager(BinarySearchTree<CompanyObject>* tree1Ptr,BinarySearchTree<
         
         
         if (strcmp(line, "QUIT") == 0) {
-            cout << "Exiting Main Menu\n" <<endl;
+            cout << "Exiting Main Menu\n" << endl;
+            cout << "Thank you for using our NAsdaq Technology Companies Database." << endl;
             inMenu = false;
         }
         

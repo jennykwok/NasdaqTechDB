@@ -20,7 +20,7 @@ private:
 public:
     
     //Constructors
-    hashEntry(){key = -1; item = NULL;}
+    hashEntry(){key = -1; item = NULL;}     // default constructors
     hashEntry(int hashFunc(ItemType newEntry,int numberOfBuckets), const ItemType & newEntry, int numberOfBuckets);
     
     //Destructor

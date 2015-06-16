@@ -224,7 +224,6 @@ void hashTable<T>::displayStats() {
     cout << "Number of collisions       : " << collisions << endl;
     cout << "Number of failed inserts   : " << failedInserts << endl;
     cout << "\n\n";
-    //cout <<
 }
 
 /***********************************************
