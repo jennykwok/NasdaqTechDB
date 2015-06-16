@@ -87,16 +87,17 @@ hashTable<T>::hashTable(int numberOfBuckets, int BucketSize){
 template <class T>
 bool hashTable<T>::insertEntry(int hashFunc(T newEntry,int numberOfBuckets),const T & newEntry) {
     
-    int address = hashFunc(newEntry,numberOfBuckets);   // same address: for statistics
-    if (table[address*BucketSize] != NULL) {collisions++;}
+    int address = hashFunc(newEntry,numberOfBuckets);
+    if (table[address*BucketSize] != NULL) {collisions++;}      // same address: for statistics
+                                                                // Address * BucketSize, 0, 3, 6, 9, 12
     
-    for(int i = 0; i < numberOfBuckets; i++){           // locate the bucket, bucket 0: 0, 1, 2 ; bucket 1: 3, 4, 5
+    for(int i = 0; i < numberOfBuckets; i++){                   // locate the bucket, bucket 0: 0, 1, 2 ; bucket 1: 3, 4, 5
         int addressLooper = (address + i)%numberOfBuckets;
         
-        for (int i = 0; i < BucketSize; i++) {          // loop slot 0 - 2
-            if (table[addressLooper*BucketSize +i] == NULL) {       // if slot is empty, then insert
-                table[addressLooper*BucketSize +i] = new hashEntry<T>(hashFunc,newEntry,numberOfBuckets);   // insert
-                if(i == 0){bucketsTaken++;}             // for statistics
+        for (int j = 0; j < BucketSize; j++) {                  // loop slot 0 - 2
+            if (table[addressLooper*BucketSize +j] == NULL) {   // if slot is empty, then insert
+                table[addressLooper*BucketSize +j] = new hashEntry<T>(hashFunc,newEntry,numberOfBuckets);   // insert
+                if(j == 0){bucketsTaken++;}                     // for statistics
                 count++;
                 return true;
             }
