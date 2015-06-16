@@ -11,8 +11,8 @@
 
 /***********************************************
  hashFunc: hash function we create and provide for the
- hashTable template to use with our ToyAward Object.
- Takes in a toyAward and number of buckets and returns
+ hashTable template to use with our Company Object.
+ Takes in a Company and number of buckets and returns
  an integer reperesenting the bucket to be placed in.
  **********************************************/
 
@@ -22,9 +22,7 @@ int hashFunc(CompanyObject company, int numberOfBuckets){
         //key += (int)front[i] * (int)front[i] * (int)front[i];
         key += (int)company.getCompanyName()[i];
     }
-    
     return (key % numberOfBuckets);
-    
 }
 
 void printCompany(CompanyObject company){
@@ -65,9 +63,9 @@ hashTable<CompanyObject> *buildHashTable(string fileName){
         getline(inputFile,CEO,';');
         getline(inputFile,subsector);
         
-        CompanyObject newCompany = CompanyObject(2,tickerSymbol,companyName,IPO_date,country,CEO,subsector);
+        CompanyObject newCompany = CompanyObject(2,tickerSymbol,companyName,IPO_date,country,CEO,subsector);        // key: Name
         
-        if (!hashTable->insertEntry(hashFunc, newCompany)) {
+        if (!hashTable->insertEntry(hashFunc, newCompany)) {        // pass the hashFunc to template function insertEntry.
             cout << "Failed to insert " << companyName << " to hash table!\n" << endl;
             rejectedList << tickerSymbol << " " << companyName << " (" << subsector << ") " << endl;
             rejectedList << CEO << " " << IPO_date << " " << country << "\n" << endl;
