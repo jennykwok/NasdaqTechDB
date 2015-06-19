@@ -36,7 +36,7 @@ BinarySearchTree<CompanyObject> *buildCompanyTree(string fileName, int keyNumber
         getline(inputFile,CEO,';');
         getline(inputFile,subsector);
         
-        if (tickerSymbol.compare("\n")) {
+        if (tickerSymbol.compare("") == 0) {
             break;
         }
         

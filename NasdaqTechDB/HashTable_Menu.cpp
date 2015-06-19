@@ -67,7 +67,7 @@ hashTable<CompanyObject> *buildHashTable(string fileName){
         getline(inputFile,CEO,';');
         getline(inputFile,subsector);
         
-        if (tickerSymbol.compare("\n")) {
+        if (tickerSymbol.compare("") == 0) {
             break;
         }
         
