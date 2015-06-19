@@ -1,10 +1,8 @@
 //
 //  hashTable.h
-//  HW5
+//  Jenny's HW5
 //
-//  Created by Jenny Kwok on 5/29/15.
-//  Copyright (c) 2015 Jenny Kwok. All rights reserved.
-//
+//  The HashTable ADT header file
 
 #ifndef __HW5__hashTable__
 #define __HW5__hashTable__

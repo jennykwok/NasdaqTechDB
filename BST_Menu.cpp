@@ -2,20 +2,40 @@
 //  BST_Menu.cpp
 //  NasdaqTechDB
 //
-//  Created by Jenny Kwok on 6/9/15.
-//  Copyright (c) 2015 Jenny Kwok. All rights reserved.
-//
+//   Description:
+//      This is the implementation file for BST_Menu.h where
+//      the menu, input to BSt, search and display functions are implemented from
+//      the abstract BST ADT.
 
 #include "BST_Menu.h"
 
+/***********************************************
+displayCompany: Calls the display company function
+ of the company class taken in as an argument
+ to print the company data
+ out to console usual fulfilling the user request
+ for such data
+ **********************************************/
 void displayCompany(CompanyObject &company){
     company.displayCompany();
 }
 
+/***********************************************
+displayIndentedTree: Takes in a company object
+ and the level number by int and formats the 
+ output by indenting in a multiple of 13 the
+ amount taken in from level. It outputs the 
+ company information with indentation.
+ **********************************************/
 void displayIndentedTree(CompanyObject &company, int level){
     cout << setw(13*level) << "L." << level << " "  << company.getTickerSymbol() << endl;
 }
 
+/***********************************************
+buildCompanyTree: takes string for filename, reads data from file
+ and produces a BST with entries populated from file. The function
+ returns a pointer to the BST.
+ **********************************************/
 BinarySearchTree<CompanyObject> *buildCompanyTree(string fileName, int keyNumber){
     BinarySearchTree<CompanyObject> *treePtr = new BinarySearchTree<CompanyObject>();
     ifstream inputFile(fileName);
@@ -50,14 +70,20 @@ BinarySearchTree<CompanyObject> *buildCompanyTree(string fileName, int keyNumber
 }
 
 
+/***********************************************
+ BST_Menu: Take in the company BST pointer
+ and uses the switch to create dev menu for the end user to interact
+ and to use to get various information offered
+ by the NASDAQ program
+ **********************************************/
 void BST_Menu(int keyNumber, BinarySearchTree<CompanyObject>* tree2Ptr){
     
     cout << "\n\n----------- Entering Binary Search Tree ("<< ((keyNumber == 0) ? "ticker symbol) -----------":"IPO date) ----------------") <<endl;
-    displayBSTMenu();
+    displayBSTMenu(); //prints the full menu
     
     char option;
     char line[128];
-    bool inMenu = true;
+    bool inMenu = true; //bool to exit out of menu loop
     
     CompanyObject temp;
     while (inMenu) {
@@ -138,6 +164,9 @@ void BST_Menu(int keyNumber, BinarySearchTree<CompanyObject>* tree2Ptr){
     }
 }
 
+/***********************************************
+displayBSTMenu: outputs the menu to user
+ **********************************************/
 void displayBSTMenu()
 {
     cout << "B – Tree Breadth-First Traversal: Print by level"<<endl;
@@ -151,6 +180,12 @@ void displayBSTMenu()
 
 }
 
+/***********************************************
+BSTSearchOption: takes a keyNumber that will
+ specify the key to use(ticker or IPO) and a 
+ pointer to the BST. If entry found, it outputs the
+ information to user. If not, not found is outputed.
+ **********************************************/
 void BSTSearchOption(int keyNumber, BinarySearchTree<CompanyObject>* tree2Ptr){
     CompanyObject temp;
     char companyKey[128];
