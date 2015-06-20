@@ -5,6 +5,7 @@
 //  Created by Jenny Kwok on 6/5/15.
 //  Copyright (c) 2015 Jenny Kwok. All rights reserved.
 //
+//  Author: Nicholas (Menu)
 
 #include <iostream>
 #include <fstream>
@@ -21,19 +22,12 @@ void saveManager(hashTable<CompanyObject> *hashTable);
 void displayMainOptions();
 
 int main(int argc, const char * argv[]) {
-    
-//    BinarySearchTree<CompanyObject>* tree1Ptr = buildCompanyTree("techList.txt", 0);
-//    BinarySearchTree<CompanyObject>* tree2Ptr = buildCompanyTree("techList.txt", 1);
-//    hashTable<CompanyObject> *hashTable = buildHashTable("techList.txt");
 
-    BinarySearchTree<CompanyObject>* tree1Ptr = buildCompanyTree("savedData.txt", 0);
-    BinarySearchTree<CompanyObject>* tree2Ptr = buildCompanyTree("savedData.txt", 1);
-    hashTable<CompanyObject> *hashTable = buildHashTable("savedData.txt");
-    
-//    BinarySearchTree<CompanyObject>* tree1Ptr = buildCompanyTree("savedData.txt", 0);
-//    BinarySearchTree<CompanyObject>* tree2Ptr = buildCompanyTree("savedData.txt", 1);
-//    hashTable<CompanyObject> *hashTable = buildHashTable("savedData.txt");
-    
+    //Instantiates a pointer to BST and Hashtable and builds the tree/hashtable
+    // using the build functions from the repective menu implementation files
+    BinarySearchTree<CompanyObject>* tree1Ptr = buildCompanyTree("techList.txt", 0);
+    BinarySearchTree<CompanyObject>* tree2Ptr = buildCompanyTree("techList.txt", 1);
+    hashTable<CompanyObject> *hashTable = buildHashTable("techList.txt");
     
     //Display Welcome Screen
     cout << "=========================================================================================================" << endl;
@@ -66,6 +60,7 @@ int main(int argc, const char * argv[]) {
     
 }
 
+// Author: Jenny
 /***********************************************
 insertManager: takes in BST1, BST2, and hashtable pointers
  and takes individual input from end user for
@@ -107,7 +102,14 @@ void insertManager(BinarySearchTree<CompanyObject>* treePtr,BinarySearchTree<Com
     }
 }
 
-// delete by ticker symbol
+// Author: Jenny
+/***********************************************
+deleteManager: takes in BST1, BST2, HashTable pointers
+ and user input for the ticker symbol of the object
+ to delete. Then the object is searched in each 
+ database and removed from every database. Outputs
+ success if the entry is found and deleted.
+ **********************************************/
 void deleteManager(BinarySearchTree<CompanyObject>* treePtr,BinarySearchTree<CompanyObject>* treePtr2,hashTable<CompanyObject> *hashTable){
     
     char line[128];

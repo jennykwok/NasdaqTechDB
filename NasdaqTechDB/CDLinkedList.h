@@ -1,6 +1,6 @@
 //
 //  CDLinkedList.h
-//  HW3
+//  Reuse the code from HW3
 //
 // Circularly Doubly Linked List ADT
 

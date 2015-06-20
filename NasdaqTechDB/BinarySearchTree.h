@@ -1,6 +1,6 @@
 // Binary Search Tree ADT
 // Created by Frank M. Carrano and Tim Henry.
-// Modified by:
+// Reuse the code from HW4
 
 #ifndef _BINARY_SEARCH_TREE
 #define _BINARY_SEARCH_TREE

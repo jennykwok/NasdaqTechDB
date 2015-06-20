@@ -2,6 +2,8 @@
 //  BST_Menu.h
 //  NasdaqTechDB
 //
+//  Author: Jenny
+//
 //   Description:
 //      This is the header file where
 //      the menu, search and display functions are added from

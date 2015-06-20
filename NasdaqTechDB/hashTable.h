@@ -1,6 +1,7 @@
 //
 //  hashTable.h
-//  Jenny's HW5
+//
+//  Reuse the code from HW5
 //
 //  The HashTable ADT header file
 

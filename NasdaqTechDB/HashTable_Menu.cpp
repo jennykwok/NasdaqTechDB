@@ -2,6 +2,8 @@
 //  HashTable_Menu.cpp
 //  NasdaqTechDB
 //
+//  Author: Tony
+//
 //   Description:
 //      This is the implementation file for HashTable_Menu.h where
 //      the actual hash function, search options, menu, display and

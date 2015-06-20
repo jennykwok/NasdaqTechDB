@@ -2,7 +2,10 @@
 //  CompanyObject.h
 //  NasdaqTechDB
 //
+//  Athour: Tony
+//
 // header file for the Company Object
+
 
 #ifndef ____CompanyObject__
 #define ____CompanyObject__

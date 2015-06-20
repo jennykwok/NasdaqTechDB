@@ -2,6 +2,8 @@
 //  CompanyObject.cpp
 //  NasdaqTechDB
 //
+//  Athour: Tony
+//
 // implementation file for the company object
 
 #include "CompanyObject.h"

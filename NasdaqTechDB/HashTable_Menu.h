@@ -2,6 +2,8 @@
 //  HashTable_Menu.h
 //  NasdaqTechDB
 //
+//  Author: Tony
+//
 //   Description:
 //      This is the header file where
 //      the actual hash function, search options, menu, display and
