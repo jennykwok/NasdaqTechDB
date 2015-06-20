@@ -33,6 +33,7 @@ int main(int argc, const char * argv[]) {
 //    hashTable<CompanyObject> *hashTable = buildHashTable("savedData.txt");
     
     
+    //Display Welcome Screen
     cout << "=========================================================================================================" << endl;
     cout << "|                             Welcome to Nasdaq Technology Companies Database!                          |" << endl;
     cout << "|                            --------------------------------------------------                         |" << endl;
