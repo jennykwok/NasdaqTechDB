@@ -2,9 +2,7 @@
 //  CDLinkedList.h
 //  HW3
 //
-//  Created by Jenny Kwok on 5/3/15.
-//  Copyright (c) 2015 Jenny Kwok. All rights reserved.
-//
+// Circularly Doubly Linked List ADT
 
 #ifndef HW3_CDLinkedList_h
 #define HW3_CDLinkedList_h

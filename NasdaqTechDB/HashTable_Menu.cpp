@@ -2,17 +2,18 @@
 //  HashTable_Menu.cpp
 //  NasdaqTechDB
 //
-//  Created by Jenny Kwok on 6/9/15.
-//  Copyright (c) 2015 Jenny Kwok. All rights reserved.
-//
+//   Description:
+//      This is the implementation file for HashTable_Menu.h where
+//      the actual hash function, search options, menu, display and
+//      the input to hashTable functions are implemented.
 
 #include "HashTable_Menu.h"
 
 
 /***********************************************
  hashFunc: hash function we create and provide for the
- hashTable template to use with our ToyAward Object.
- Takes in a toyAward and number of buckets and returns
+ hashTable template to use with our Company Object.
+ Takes in a CompanyObject and number of buckets and returns
  an integer reperesenting the bucket to be placed in.
  **********************************************/
 
@@ -26,15 +27,33 @@ int hashFunc(CompanyObject company, int numberOfBuckets){
     
 }
 
+/***********************************************
+printCompany: Calls the display company function
+of the company class taken in as an argument
+to print the company data
+out to console usual fulfilling the user request
+for such data
+ **********************************************/
 void printCompany(CompanyObject company){
     company.displayCompany();
 }
 
+/***********************************************
+printCompanyToFile: takes in a company object
+ and the ofstream object as reference and
+ outputs to file each variable of company object
+ in a comma separated format
+ **********************************************/
 void printCompanyToFile(CompanyObject company, ofstream &outputFile){
     outputFile << company.getTickerSymbol() << ";" << company.getCompanyName() << ";" << company.getIPO_date() << ";"
                << company.getCountry() << ";" <<company.getCEO() << ";" << company.getSubsector() << endl;
 }
 
+/***********************************************
+ printCompanyIndent: Takes ina company object
+ and prints to the console the company info 
+ in a formatted way for the end user
+ **********************************************/
 void printCompanyIndent(CompanyObject company){
     cout << company.getTickerSymbol() << ", " << company.getCompanyName() << " (" << company.getSubsector() << ") " << endl;
     
@@ -43,8 +62,9 @@ void printCompanyIndent(CompanyObject company){
 /***********************************************
  buildHashTable: takes string for filename, reads data from file
  and produces a hashTable with entries propulated from file. All
- entries unable to be inserted due to full buckets are writen to
- rejected txt. Function returns pointer to the hashTable.
+ entries unable to be inserted due to full buckets are inserted in
+ the subsequent bucket.
+ Function returns pointer to the hashTable.
  **********************************************/
 
 hashTable<CompanyObject> *buildHashTable(string fileName){
@@ -88,14 +108,20 @@ hashTable<CompanyObject> *buildHashTable(string fileName){
 }
 
 
+/***********************************************
+hashTable_Menu: Take in the company Hashatable pointer
+ and uses the switch to create dev menu for the end user to interact
+ and to use to get various information offered 
+ by the NASDAQ program
+ **********************************************/
 void hashTable_Menu(hashTable<CompanyObject> *hashTable){
     
     cout << "\n\n------------------- Entering Hash Table Menu ----------------------"<<endl;
-    displayHashTableMenu();
+    displayHashTableMenu(); //prints the full menu
     
     char option;
     char line[128];
-    bool inMenu = true;
+    bool inMenu = true; //bool to exit out of menu loop
     
     while (inMenu) {
         
@@ -137,6 +163,9 @@ void hashTable_Menu(hashTable<CompanyObject> *hashTable){
     }
 }
 
+/***********************************************
+ displayHashTableMenu: outputs the menu to user
+ **********************************************/
 void displayHashTableMenu()
 {
     cout << "S – Search by a unique key" <<endl;
@@ -147,8 +176,9 @@ void displayHashTableMenu()
 }
 
 /***********************************************
- hashSearchOption: takes in an hashSearchOption takes a 
- hashTable and perform search menu. (Sub menu of full hashTable menu)
+ hashSearchOption: takes in an hashtable pointer
+ hashSearchOption takes a hashTable and perform search menu. 
+ (Sub menu of full hashTable menu)
  **********************************************/
 
 void hashSearchOption(hashTable<CompanyObject> *hashTable){
