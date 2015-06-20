@@ -26,6 +26,11 @@ int main(int argc, const char * argv[]) {
     BinarySearchTree<CompanyObject>* tree2Ptr = buildCompanyTree("techList.txt", 1);
     hashTable<CompanyObject> *hashTable = buildHashTable("techList.txt");
     
+//    BinarySearchTree<CompanyObject>* tree1Ptr = buildCompanyTree("savedData.txt", 0);
+//    BinarySearchTree<CompanyObject>* tree2Ptr = buildCompanyTree("savedData.txt", 1);
+//    hashTable<CompanyObject> *hashTable = buildHashTable("savedData.txt");
+    
+    
     cout << "=========================================================================================================" << endl;
     cout << "|                             Welcome to Nasdaq Technology Companies Database!                          |" << endl;
     cout << "|                            --------------------------------------------------                         |" << endl;
