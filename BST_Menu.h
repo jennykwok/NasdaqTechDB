@@ -2,9 +2,10 @@
 //  BST_Menu.h
 //  NasdaqTechDB
 //
-//  Created by Jenny Kwok on 6/9/15.
-//  Copyright (c) 2015 Jenny Kwok. All rights reserved.
-//
+//   Description:
+//      This is the header file where
+//      the menu, search and display functions are added from
+//      the abstract BST ADT.
 
 #ifndef __NasdaqTechDB__BST_Menu__
 #define __NasdaqTechDB__BST_Menu__

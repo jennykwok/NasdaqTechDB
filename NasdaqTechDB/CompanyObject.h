@@ -2,9 +2,7 @@
 //  CompanyObject.h
 //  NasdaqTechDB
 //
-//  Created by Jenny Kwok on 6/8/15.
-//  Copyright (c) 2015 Jenny Kwok. All rights reserved.
-//
+// header file for the Company Object
 
 #ifndef ____CompanyObject__
 #define ____CompanyObject__

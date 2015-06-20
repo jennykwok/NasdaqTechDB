@@ -2,9 +2,10 @@
 //  HashTable_Menu.h
 //  NasdaqTechDB
 //
-//  Created by Jenny Kwok on 6/9/15.
-//  Copyright (c) 2015 Jenny Kwok. All rights reserved.
-//
+//   Description:
+//      This is the header file where
+//      the actual hash function, search options, menu, display and
+//      the input to hashTable functions are added to the abtract hashtable ADT.
 
 #ifndef __NasdaqTechDB__HashTable_Menu__
 #define __NasdaqTechDB__HashTable_Menu__

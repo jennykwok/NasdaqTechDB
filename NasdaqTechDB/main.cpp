@@ -30,6 +30,12 @@ int main(int argc, const char * argv[]) {
     BinarySearchTree<CompanyObject>* tree2Ptr = buildCompanyTree("savedData.txt", 1);
     hashTable<CompanyObject> *hashTable = buildHashTable("savedData.txt");
     
+//    BinarySearchTree<CompanyObject>* tree1Ptr = buildCompanyTree("savedData.txt", 0);
+//    BinarySearchTree<CompanyObject>* tree2Ptr = buildCompanyTree("savedData.txt", 1);
+//    hashTable<CompanyObject> *hashTable = buildHashTable("savedData.txt");
+    
+    
+    //Display Welcome Screen
     cout << "=========================================================================================================" << endl;
     cout << "|                             Welcome to Nasdaq Technology Companies Database!                          |" << endl;
     cout << "|                            --------------------------------------------------                         |" << endl;
@@ -40,12 +46,15 @@ int main(int argc, const char * argv[]) {
     cout << "|                                      [ENTER] to continue to menu                                      |" << endl;
     cout << "=========================================================================================================" << endl << endl;
     
+    //Display the main menu to end user to use database
     mainMenuManager(tree1Ptr, tree2Ptr, hashTable);
     
+    //Deallocates all databases
     delete tree1Ptr;
     delete tree2Ptr;
     delete hashTable;
     
+    //Thank you Screen
     cout << "\n" << endl;
     cout << "=========================================================================================================" << endl;
     cout << "|                                                                                                       |" << endl;
@@ -57,6 +66,14 @@ int main(int argc, const char * argv[]) {
     
 }
 
+/***********************************************
+insertManager: takes in BST1, BST2, and hashtable pointers
+ and takes individual input from end user for
+ each variable of company object. It creates 
+ a new object from user data and inserts it to
+ BST1, BST2 and hashtable. Outputs success if 
+ insert success and no duplicates/synonyms found.
+ **********************************************/
 void insertManager(BinarySearchTree<CompanyObject>* treePtr,BinarySearchTree<CompanyObject>* treePtr2,hashTable<CompanyObject> *hashTable){
     char tickerSymbol[127];
     char companyName[127];
@@ -76,6 +93,7 @@ void insertManager(BinarySearchTree<CompanyObject>* treePtr,BinarySearchTree<Com
     CompanyObject newCompany = CompanyObject(0,tickerSymbol,companyName,IPO_date,country,CEO,subsector);    // key: ticker symbol
     CompanyObject temp;
     
+    // Checks for any dupulicates/synonyms are found in the existing database
     if (!treePtr->getEntry(newCompany, temp) && !treePtr2->getEntry(newCompany, temp) && !hashTable->getEntry(hashFunc, newCompany, temp)) {
         treePtr->insert(newCompany);
         newCompany.setKeyNumber(1);         // change key to IPO for tree2
@@ -87,9 +105,6 @@ void insertManager(BinarySearchTree<CompanyObject>* treePtr,BinarySearchTree<Com
     }else{
         cout << "\n |" << "Failed to insert, company already exist in database.\n\n" <<endl;
     }
-    
-   
-    
 }
 
 // delete by ticker symbol
@@ -110,18 +125,22 @@ void deleteManager(BinarySearchTree<CompanyObject>* treePtr,BinarySearchTree<Com
     }else{
         cout << " |" << "Unable to delete company.\n\n" <<endl;
     }
-    
-    
 }
 
+
+/***********************************************
+mainMenuManager: takes in BST1, BST2, HashTable pointers
+and uses switch to create main menu for end user to
+ interact with all databases in a simple manner.
+ **********************************************/
 void mainMenuManager(BinarySearchTree<CompanyObject>* tree1Ptr,BinarySearchTree<CompanyObject>* tree2Ptr,hashTable<CompanyObject> *hashTable){
     
     char line[128];
-    bool inMenu = true;
+    bool inMenu = true; //bool to exit out of menu loop
     cin.getline(line, 127);
     
     while (inMenu) {
-        displayMainOptions();
+        displayMainOptions(); //prints the menu options in detail
         cout << "Enter Option: ";
         
         cin.getline(line, 127);
@@ -131,9 +150,6 @@ void mainMenuManager(BinarySearchTree<CompanyObject>* tree1Ptr,BinarySearchTree<
             
             
             displayMainOptions();
-            //cout << "Type BST1 for binary seach tree with ticker symbol as key" <<endl;
-            //cout << "Type BST2 for binary seach tree with IPO date as key" <<endl;
-            //cout << "Type HASH for hash table" <<endl;
             
         }
         
@@ -144,6 +160,7 @@ void mainMenuManager(BinarySearchTree<CompanyObject>* tree1Ptr,BinarySearchTree<
             char line[128];
             bool inMenu = true;
             while (inMenu) {
+                //developer menu options
                 cout << "\n\n------------------------- Developer's Menu ------------------------" << endl;
                 cout << " ->  [BST1]      to enter ticker symbol BST menu" << endl;
                 cout << " ->  [BST2]      to enter IPO BST menu" << endl;
@@ -167,12 +184,8 @@ void mainMenuManager(BinarySearchTree<CompanyObject>* tree1Ptr,BinarySearchTree<
                     cout << "\n" <<endl;
                     inMenu = false;
                 }
-
-
             }
         }
-        
-        
         
         // Main options
         
@@ -192,24 +205,19 @@ void mainMenuManager(BinarySearchTree<CompanyObject>* tree1Ptr,BinarySearchTree<
         if(strcmp(line, "SAVE") == 0){
             saveManager(hashTable);
         }
-
-        
-        
-        
         if (strcmp(line, "QUIT") == 0) {
             ofstream outputFile("savedData.txt");
             hashTable->printHashToFile(printCompanyToFile, outputFile);
             outputFile.close();
             inMenu = false;
         }
-        
     }
-
 }
 
+/***********************************************
+ displayMainOptions: outputs the main menu to user
+ **********************************************/
 void displayMainOptions(){
-    //cout << "->  TICKER     to search companies by ticker symbol" << endl;
-    //cout << "->  IPO        to search companies by IPO date" << endl;
     cout << "------------------------ M A I N   M E N U ------------------------" << endl;
     cout << " ->  [SEARCH]    to search for company" << endl;
     cout << " ->  [DISPLAY]   to display all companies sorted by ticker symbol" << endl;
@@ -219,9 +227,15 @@ void displayMainOptions(){
     cout << " ->  [QUIT]      to exit main menu\n" <<endl;
 }
 
-
+/***********************************************
+ searchManager: takes in BST1, BST2, HashTable
+ pointers and either ticker/IPODate/fullname from user
+ and search for the company in each respective
+ database and display company if found. Otherwise,
+ display not found.
+ **********************************************/
 void searchManager(BinarySearchTree<CompanyObject>* treePtr,BinarySearchTree<CompanyObject>* treePtr2,hashTable<CompanyObject> *hashTable){
-    CompanyObject temp;
+    CompanyObject temp; //Temp object to store company data
     char line[128];
     
     while (1) {
@@ -245,6 +259,13 @@ void searchManager(BinarySearchTree<CompanyObject>* treePtr,BinarySearchTree<Com
     cout << "\n" <<endl;
 }
 
+/***********************************************
+ SaveManager: takes in hashTable pointer
+ and gets a filename from user. It generates an
+ output file of that specified name and calls
+ printHashToFile function to output to file.
+ After finished, it prints success.
+ **********************************************/
 void saveManager(hashTable<CompanyObject> *hashTable){
     
     char line[128];
